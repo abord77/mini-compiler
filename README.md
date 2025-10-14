@@ -8,9 +8,9 @@ WLP4 is a simplified, statically-typed language designed with a minimal feature 
 
 *   **Main Entry Point**: Programs must define a `wain` function as their entry point, which can accept either two `int` parameters or an `int*` and an `int`
 *   **Data Types**: The language is strictly typed, supporting `int` (integers) and `int*` (integer pointers)
-*   **Operators**: It includes basic arithmetic (`+`, `-`, `*`, `/`, `%`), relational (`==`, `!=`, `<`, `>`, `<=`, `>=`), and pointer dereferencing/address-of (`*`, `&`) operators [attached_file:2]. Logical operators like `&&` or `||` are not supported and must be implemented with nested `if` statements
+*   **Operators**: It includes basic arithmetic (`+`, `-`, `*`, `/`, `%`), relational (`==`, `!=`, `<`, `>`, `<=`, `>=`), and pointer dereferencing/address-of (`*`, `&`) operators. Logical operators like `&&` or `||` are not supported and must be implemented with nested `if` statements
 *   **Control Flow**: Program flow is controlled using `if-else` blocks and `while` loops. More complex structures like `else if` or `for` loops are not part of the language
-*   **Memory Management**: Dynamic memory is managed via `new int[n]` for allocation and `delete [] expr` for deallocation. A failed allocation returns `NULL` rather than throwing an exception [attached_file:2][attached_file:3].
+*   **Memory Management**: Dynamic memory is managed via `new int[n]` for allocation and `delete [] expr` for deallocation. A failed allocation returns `NULL` rather than throwing an exception.
 *   **I/O**: Console input and output are handled by three built-in functions: `getchar()`, `putchar(c)`, and `println(i)`
 
 ## Compiler Architecture
