@@ -1,16 +1,16 @@
 # Mini C Compiler
 
-This project is a mini compiler for WLP4, a small, C-like procedural language. It processes WLP4 source code through a full compilation pipeline, from lexical analysis to the final generation of executable MIPS machine code.
+This project is a mini compiler for WLP4, a small, C-like procedural language. It processes WLP4 source code (defined below) through a full compilation pipeline, from lexical analysis to the final generation of executable MIPS machine code.
 
 ## The WLP4 Language
 
-WLP4 is a simplified, statically-typed language designed with a minimal feature set to focus on core compiler concepts.
+WLP4 is a simplified, statically-typed language designed with a minimal feature set to focus on core compiler concepts. It is a heavily stripped down version of C.
 
 *   **Main Entry Point**: Programs must define a `wain` function as their entry point, which can accept either two `int` parameters or an `int*` and an `int`
 *   **Data Types**: The language is strictly typed, supporting `int` (integers) and `int*` (integer pointers)
 *   **Operators**: It includes basic arithmetic (`+`, `-`, `*`, `/`, `%`), relational (`==`, `!=`, `<`, `>`, `<=`, `>=`), and pointer dereferencing/address-of (`*`, `&`) operators. Logical operators like `&&` or `||` are not supported and must be implemented with nested `if` statements
 *   **Control Flow**: Program flow is controlled using `if-else` blocks and `while` loops. More complex structures like `else if` or `for` loops are not part of the language
-*   **Memory Management**: Dynamic memory is managed via `new int[n]` for allocation and `delete [] expr` for deallocation. A failed allocation returns `NULL` rather than throwing an exception.
+*   **Memory Management**: Dynamic memory is managed via `new int[n]` for allocation and `delete [] expr` for deallocation. A failed allocation returns `NULL` rather than throwing an exception
 *   **I/O**: Console input and output are handled by three built-in functions: `getchar()`, `putchar(c)`, and `println(i)`
 
 ## Compiler Architecture
@@ -42,10 +42,9 @@ In the final stage, a two-pass assembler converts the generated MIPS assembly in
 ## Project Structure
 
 The codebase is organized by compiler stage and functionality:
-*   **`main.cc`**: The main driver that orchestrates the compilation pipeline.
-*   **`wlp4...` files**: The compiler front-end, responsible for processing WLP4 source code (scanning, parsing, semantic analysis).
-*   **`mips...` files**: Components for the MIPS-specific back-end, including the assembler and machine code generation.
-*   **`...Instruction.cc` / `.h` files**: Define structures for parsing and representing different formats of MIPS instructions (e.g., branches, register-based operations).
-*   **`asmCodeGenerator.cc`**: A dedicated module for encapsulating assembly code generation logic.
-*   **`assembler.cc`**: The MIPS-to-binary assembler.
-
+*   **`main.cc`**: The main driver that orchestrates the compilation pipeline
+*   **`wlp4...` files**: The compiler front-end, responsible for processing WLP4 source code and creating MIPS assembly (scanning, parsing, semantic analysis, code generation)
+*   **`mips...` files**: Components for the MIPS-specific back-end, including the assembler and machine code generation
+*   **`...Instruction.cc` / `.h` files**: Define structures for parsing and representing different formats of MIPS instructions (e.g., branches, register-based operations)
+*   **`asmCodeGenerator.cc`**: A dedicated module for encapsulating assembly code generation logic
+*   **`assembler.cc`**: The MIPS-to-binary assembler
